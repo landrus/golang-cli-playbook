@@ -11,7 +11,7 @@ import (
 )
 
 func TestModule1CheckEnvGOOS(t *testing.T) {
-	found := OpenFileAndFindNthString("module1.txt", 0, "set GOOS")
+	found := OpenFileAndFindNthString("module1.txt", 0, "GOOS")
 
 	if !found {
 		t.Errorf("'go env' does not work as expected")
@@ -82,8 +82,16 @@ func OpenFileAndFindNthString(filename string, nth int, expected string) bool {
 
 		// matching logic
 		ss := strings.Split(trimmed, "=")
-		if ss[nth] == expected {
-			return true
+		ss = strings.Split(ss[nth], " ")
+
+		if len(ss) == 0 {
+			if ss[0] == expected {
+				return true
+			}
+		} else {
+			if ss[1] == expected {
+				return true
+			}
 		}
 	}
 
