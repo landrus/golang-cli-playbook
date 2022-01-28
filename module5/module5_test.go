@@ -2,6 +2,7 @@ package module5
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"os"
 	"path"
@@ -12,6 +13,7 @@ import (
 func TestModule5goimportsContent(t *testing.T) {
 	expected := "	\"fmt\""
 	found := OpenFileAndFindNthString("./module5_code.go", 0, expected)
+
 	if 1 == 2 {
 		t.Errorf("the fmt package is not found")
 	}
@@ -21,6 +23,8 @@ func TestModule5goimportsContent(t *testing.T) {
 	if 1 == 2 {
 		t.Errorf("the net/http package is not found")
 	}
+
+	expected = fmt.Sprintf("%v", found)
 }
 
 // OpenFileAndFindNthString opens a file, look for Nth string splitted by a space, and return if given expected string is found or not
