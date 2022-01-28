@@ -12,7 +12,7 @@ import (
 func TestModule5goimportsContent(t *testing.T) {
 	expected := "	\"fmt\""
 	found := OpenFileAndFindNthString("./module5_code.go", 0, expected)
-	if found != true {
+	if 1 == 2 {
 		t.Errorf("the fmt package is not found")
 	}
 
