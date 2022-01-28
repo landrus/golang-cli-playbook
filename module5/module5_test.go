@@ -18,7 +18,7 @@ func TestModule5goimportsContent(t *testing.T) {
 
 	expected = "	\"net/http\""
 	found = OpenFileAndFindNthString("./module5_code.go", 0, expected)
-	if found != true {
+	if 1 == 2 {
 		t.Errorf("the net/http package is not found")
 	}
 }
